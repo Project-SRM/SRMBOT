@@ -72,33 +72,39 @@
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
 		        }
-				else if(convState.current.answer.value==='1') {
+				else if(convState.current.answer.value==='srm') {
 		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
 						questions: ['What do you wanna know about SRM ?'],
 						answers: [
-							{text: 'Events', value: '3'},
-							{text: 'Academics', value: '4'},
-							{text: 'Campus Life', value: '5'},
+							{text: 'Events', value: 'events'},
+							{text: 'Academics', value: 'academics'},
+							{text: 'Campus Life', value: 'campusLife'},
+							{text: 'Research', value: 'research'},
+							{text: 'About', value: 'about'},
 							{text: 'END', value: 'end'}
 						]
 					});
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
 		        }
-				else if(convState.current.answer.value==='2') {
+				else if(convState.current.answer.value==='admission') {
 		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
 						questions: ['You are looking for admission in: '],
 						answers: [
-							{text: 'Engineering', value: '6'},
-							{text: 'Medical & Health Sciences', value: '7'},
-							{text: 'Manangement', value: '8'},
-							{text: 'Law', value: '9'},
+							{text: 'Engineering', value: 'engineering'},
+							{text: 'Medical & Health Sciences', value: 'medical'},
+							{text: 'Manangement', value: 'management'},
+							{text: 'Law', value: 'law'},
+							{text: 'Science And Humanities', value: 'SandH'},
+							{text: 'Hotel and Catering Management', value: 'HandCM'},
+							{text: 'International Admissions', value: 'international'},
+							{text: 'Others', value: 'otherSector'},
 							{text: 'END', value: 'end'}
 						]
 					});
@@ -106,16 +112,47 @@
 					setTimeout(ready, Math.random()*500+100);
 		        }
 
-				else if(convState.current.answer.value==='6') {
+				else if(convState.current.answer.value==='engineering') {
 		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
 						questions: ['Choose preferred option: '],
 						answers: [
-							{text: 'Programs Offered', value: '10'},
-							{text: 'Admission Procedure', value: '11'},
-							{text: 'Fees', value: '12'},
+							{text: 'Programs Offered', value: 'program'},
+							{text: 'Admission Procedure', value: 'admissionProcedure'},
+							{text: 'Apply Now', value: 'apply'},
+							{text: 'Financial and Fees', value: 'fees'},
+							{text: 'Others', value: 'othersEngin'},
+							{text: 'END', value: 'end'}
+						]
+					});
+					convState.current.next.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['For More Information:'],
+						answers: [
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'websiteMain'},
+							{text: 'END', value: 'end'}
+						]
+					});
+
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+
+				else if(convState.current.answer.value==='medical') {
+		            convState.current.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['For More Information:'],
+						answers: [
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'website'},
+							{text: 'Apply Now', value: 'apply'},
 							{text: 'END', value: 'end'}
 						]
 					});
@@ -123,16 +160,16 @@
 					setTimeout(ready, Math.random()*500+100);
 		        }
 
-				else if(convState.current.answer.value==='7') {
+				else if(convState.current.answer.value==='management') {
 		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
-						questions: ['Choose preferred option: '],
+						questions: ['For More Information:'],
 						answers: [
-							{text: 'Programs Offered', value: '13'},
-							{text: 'Admission Procedure', value: '14'},
-							{text: 'Fees', value: '15'},
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'website'},
+							{text: 'Apply Now', value: 'apply'},
 							{text: 'END', value: 'end'}
 						]
 					});
@@ -140,33 +177,99 @@
 					setTimeout(ready, Math.random()*500+100);
 		        }
 
-				else if(convState.current.answer.value==='8') {
+				else if(convState.current.answer.value==='law') {
 		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
-						questions: ['Choose preferred option: '],
+						questions: ['For More Information:'],
 						answers: [
-							{text: 'Programs Offered', value: '16'},
-							{text: 'Admission Procedure', value: '17'},
-							{text: 'Fees', value: '18'},
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'website'},
+							{text: 'Apply Now', value: 'apply'},
 							{text: 'END', value: 'end'}
 						]
 					});
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
 		        }
-
-				else if(convState.current.answer.value==='9') {
+				else if(convState.current.answer.value==='SandH') {
 		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
-						questions: ['Choose preferred option: '],
+						questions: ['For More Information:'],
 						answers: [
-							{text: 'Programs Offered', value: '19'},
-							{text: 'Admission Procedure', value: '20'},
-							{text: 'Fees', value: '21'},
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'website'},
+							{text: 'Apply Now', value: 'apply'},
+							{text: 'END', value: 'end'}
+						]
+					});
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='HandCM') {
+		            convState.current.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['For More Information:'],
+						answers: [
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'website'},
+							{text: 'Apply Now', value: 'apply'},
+							{text: 'END', value: 'end'}
+						]
+					});
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='international') {
+		            convState.current.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['For More Information:'],
+						answers: [
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'website'},
+							{text: 'Apply Now', value: 'apply'},
+							{text: 'END', value: 'end'}
+						]
+					});
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='otherSector') {
+		            convState.current.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['For More Information:'],
+						answers: [
+							{text: 'Contact Us', value: 'contact'},
+							{text: 'Visit Website', value: 'website'},
+							{text: 'Apply Now', value: 'apply'},
+							{text: 'END', value: 'end'}
+						]
+					});
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='fees') {
+		            convState.current.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['You are looking for: '],
+						answers: [
+							{text: 'Tution Fees', value: 'tution'},
+							{text: 'Hostel Fees', value: 'hostel'},
+							{text: 'Transport Fees', value: 'transport'},
+							{text: 'Scholarships', value: 'scholarship'},
+							{text: 'Refund related issues', value: 'refund'},
+							{text: 'Loans', value: 'loans'},
 							{text: 'END', value: 'end'}
 						]
 					});
@@ -201,8 +304,8 @@
 						name: 'dynamic-question-'+count,
 						questions: ['How can I help you?'],
 						answers: [
-							{text: 'Tell about SRM', value: '1'},
-							{text: 'Admission', value: '2'},
+							{text: 'Tell about SRM', value: 'srm'},
+							{text: 'Admission', value: 'admission'},
 							{text: 'END', value: 'end'}
 						]
 					});
