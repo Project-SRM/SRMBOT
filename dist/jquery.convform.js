@@ -30,7 +30,7 @@ ConvState.prototype.newState = function(options) {
         name: '',
         noAnswer: false,
         required: true,
-        questions: ['You forgot the question!'],
+        questions: ['Sorry I didn\'t understand!!'],
         type: 'text',
         multiple: false,
         selected: "",

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>convForm - example</title>
+	<title>SRMIST</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -25,6 +25,33 @@
 	                                    <option value="sure">Sure!</option>
 	                                </select> -->
 	                                <input type="text" name="name" data-conv-question="Okay! Please, tell me your name first.">
+									<!-- <select name="second-question" data-callback="storeState" data-conv-question="Hy {name}! How can I help you?">
+	                                    <option value="SRM">Tell me about SRM</option>
+	                                    <option value="admission">Admission</option>
+	                                </select>
+	                                <div data-conv-fork="second-question">
+	                                    <div data-conv-case="SRM">
+											<select name="thought" data-conv-question="What do you want to know about SRM">
+		                                    	<option value="events">Events</option> 
+												<option value="academics">Academics</option> 
+												<option value="campus-life">Campus Life</option> 
+												<option value="research">Research</option> 
+												<option value="about">About</option> 
+		                                    </select>
+	                                    </div>
+	                                    <div data-conv-case="admission">
+		                                    <select name="thought" data-conv-question="Have you ever thought about learning? Programming is fun!">
+		                                    	<option value="engineering">Engineering</option>
+												<option value="medical">Medical & Health Sciences</option>
+												<option value="management">Manangement</option>
+												<option value="law">Law</option>
+												<option value="science">Science And Humanities</option>
+												<option value="hotel">Hotel and Catering Management</option>
+												<option value="international">International Admissions</option>
+												<option value="others-sector">Others</option>
+		                                    </select>
+	                                    </div>
+	                                </div> -->
 	                                <!-- <input type="text" data-conv-question="Hey, {name}:0! It's a pleasure to meet you. " data-no-answer="true"> -->
 	                                                               
 									<!-- <select data-conv-question="How can I help you?">
@@ -60,7 +87,7 @@
 	<script type="text/javascript" src="dist/autosize.min.js"></script>
 	<script type="text/javascript" src="dist/jquery.convform.js"></script>
 
-	<script>
+	 <script>
 		jQuery(function($){
 			var count = 0;
 			var convForm = $('#chat').convform({eventList:{onInputSubmit: function(convState, ready) {
@@ -81,7 +108,7 @@
 						answers: [
 							{text: 'Events', value: 'events'},
 							{text: 'Academics', value: 'academics'},
-							{text: 'Campus Life', value: 'campusLife'},
+							{text: 'Campus Life', value: 'campus-life'},
 							{text: 'Research', value: 'research'},
 							{text: 'About', value: 'about'},
 							{text: 'END', value: 'end'}
@@ -123,21 +150,28 @@
 							{text: 'Admission Procedure', value: 'admissionProcedure'},
 							{text: 'Apply Now', value: 'apply'},
 							{text: 'Financial and Fees', value: 'fees'},
-							{text: 'Others', value: 'othersEngin'},
+							{text: 'Others', value: 'othersEng'},
+							{text: 'Know More', value: 'knowmore'},
 							{text: 'END', value: 'end'}
 						]
 					});
-					convState.current.next.next = convState.newState({
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+					else if(convState.current.answer.value==='knowmore') {
+		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
 						questions: ['For More Information:'],
 						answers: [
 							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'websiteMain'},
+							{text: 'Visit Website', value: 'websiteEng'},
 							{text: 'END', value: 'end'}
 						]
 					});
+					
+					
 
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
@@ -180,6 +214,145 @@
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
 		        }
+
+				else if(convState.current.answer.value==='events') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/events-archive/2021";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='academics'| convState.current.answer.value==='website' ) {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='campus-life') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/campus/campus";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='research') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/research/research-details";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='about') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/aboutus/srm-university-where-you-have-freedom-take-wings";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+
+				else if(convState.current.answer.value==='contact') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/contact-us";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='apply') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='websiteEng'|convState.current.answer.value==='othersEng') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/academics/engineering";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='program') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/engineering/programs-offered";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='admissionProcedure') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/engineering/admission-procedure-how-to-apply";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='tution') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/engineering/fees/tuition-fee";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='hostel') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/hostel-fee-structure-academic-year-2020-21-first-year-students-boys-girls";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='transport') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/engineering/fees/transport-fee";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='scholarship') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/engineering/fees/scholarships";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='refund') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/cancellation-of-admission-and-refund-policy";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='loans') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/academics/engineering";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='scholarship') {
+					convState.current.next = convState.newState({
+						type: 'select'
+					});
+		            window.location.href = "https://www.srmist.edu.in/admission-india/engineering/fees/loans";
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				
 
 
 				// else if(convState.current.answer.value==='2') {
@@ -225,7 +398,7 @@
 		        count++;
 		    }}});
 		});
-	</script>
+	</script> 
 
 
 
