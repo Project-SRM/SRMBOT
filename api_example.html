@@ -18,9 +18,10 @@
 	                    <div class="card no-border">
 	                        <div id="chat">
 	                            <form action="" method="GET" class="hidden">
-	                                <select data-conv-question="Hello! This is an example use of the plugin to dynamically generate questions (like using an API). This is the only question that was written on the initial HTML. To end the loop, select END." name="first-question">
-	                                    <option value="understood">Understood</option>
-	                                    <option value="okay">Okay, captain!</option>
+									<input data-conv-question="Hello! This is SRMBOT, here to help you!" name="first-question"data-no-answer="true">    
+	                                <select data-conv-question="How can I help you?" name="first-question">
+	                                    <option value="srm">okay</option>
+	                                    <option value="admission">yr</option>
 	                                </select>
 	                            </form>
 	                        </div>
@@ -45,25 +46,78 @@
 		            convState.current.next = false;
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
-		        } else {
+		        }
+				else if(convState.current.answer.value==='1') {
+		            convState.current.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['What do you wanna know about SRM'],
+						answers: [
+							{text: 'Events', value: '3'},
+							{text: 'Academics', value: '4'},
+							{text: 'Campus Life', value: '5'},
+							{text: 'END', value: 'end'}
+						]
+					});
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+				else if(convState.current.answer.value==='2') {
+		            convState.current.next = convState.newState({
+						type: 'select',
+						//noAnswer: true,
+						name: 'dynamic-question-'+count,
+						questions: ['You are looking for admission in: '+ answer],
+						answers: [
+							{text: 'Engineering', value: '6'},
+							{text: 'Medical & Health Sciences', value: '7'},
+							{text: 'Manangement', value: '8'},
+							{text: 'Law', value: '9'},
+							{text: 'END', value: 'end'}
+						]
+					});
+					//emulating random response time (100-600ms)
+					setTimeout(ready, Math.random()*500+100);
+		        }
+
+				// else if(convState.current.answer.value==='2') {
+		        //     convState.current.next = convState.State({
+				// 		type: 'select',
+				// 		//noAnswer: true,
+				// 		name: 'dynamic-question-'+count,
+				// 		questions: ['You are looking for admission in: '+ answer],
+				// 		answers: [
+				// 			{text: 'Engineering', value: '6'},
+				// 			{text: 'Medical & Health Sciences', value: '7'},
+				// 			{text: 'Manangement', value: '8'},
+				// 			{text: 'Law', value: '9'},
+				// 			{text: 'END', value: 'end'}
+				// 		]
+				// 	});
+				// 	//emulating random response time (100-600ms)
+				// 	setTimeout(ready, Math.random()*500+100);
+		        // }
+				 else {
 					if(Array.isArray(convState.current.answer)) var answer = convState.current.answer.join(', ');
 					else var answer = convState.current.answer.text;
 					convState.current.next = convState.newState({
 						type: 'select',
-						noAnswer: true,
+						//noAnswer: true,
 						name: 'dynamic-question-'+count,
-						questions: ['This question state was built on your previous answer (you answered: '+answer+') and doesnt expect an answer'],
-					});
-					convState.current.next.next = convState.newState({
-						type: 'select',
-						name: 'dynamic-question-'+count,
-						questions: ['This question state was built on your previous answer (you answered: '+answer+')'],
+						questions: ['How can I help you?'],
 						answers: [
-							{text: 'Answer 1', value: '1'},
-							{text: 'Answer 2', value: '2'},
+							{text: 'Tell about SRM', value: '1'},
+							{text: 'Admission', value: '2'},
 							{text: 'END', value: 'end'}
 						]
 					});
+					// convState.current.next.next = convState.newState({
+					// 	type: 'select',
+					// 	name: 'dynamic-question-'+count,
+					// 	questions: ['This question state was built on your previous answer (you answered: '+answer+')'],
+						
+					// });
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
 		        }
