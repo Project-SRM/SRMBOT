@@ -25,7 +25,7 @@
 	                                    <option value="sure">Sure!</option>
 	                                </select> -->
 	                                <input type="text" name="name" data-conv-question="Okay! Please, tell me your name first.">
-	                                <input type="text" data-conv-question="Hey, {name}:0! It's a pleasure to meet you. " data-no-answer="true">
+	                                <!-- <input type="text" data-conv-question="Hey, {name}:0! It's a pleasure to meet you. " data-no-answer="true"> -->
 	                                                               
 									<!-- <select data-conv-question="How can I help you?">
 											<option value="srm" data-callback="srm" >Tell me about SRM</option>
@@ -206,7 +206,7 @@
 						type: 'select',
 						//noAnswer: true,
 						name: 'dynamic-question-'+count,
-						questions: ['How can I help you?'],
+						questions: ['Hy {name}! How can I help you?'],
 						answers: [
 							{text: 'Tell about SRM', value: 'srm'},
 							{text: 'Admission', value: 'admission'},
