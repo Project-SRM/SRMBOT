@@ -287,11 +287,11 @@ div.conv-form-wrapper div.options div.option:hover {
     background: #eeeeee;
 }
 div.conv-form-wrapper div.options div.option.selected {
-    background: #06b79a;
+    background: #063a7e;
     color: #fff;
 }
 div.conv-form-wrapper div.options div.option.selected:hover {
-    background: #069c7f;
+    background: #063a7e;
 }
 
 form.convFormDynamic button.submit {
@@ -299,7 +299,7 @@ form.convFormDynamic button.submit {
     border: none;
     float: left;
     margin: 5px;
-    color: #06c5a6;
+    color: #063a7e;
     cursor: pointer;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -312,12 +312,12 @@ form.convFormDynamic button.submit {
 
 
 form.convFormDynamic button.submit:hover {
-    background: #06b79a;
+    background: #063a7e;
     color: #fff;
 }
 
 button.submit.glow {
-    box-shadow: 0 0 10px 5px rgba(6, 197, 166, 0.4);
+    box-shadow: 0 0 10px 5px rgba(18, 29, 180, 0.918);
 }
 .no-border {
     border: none !important;
@@ -339,14 +339,14 @@ span.clear {
 .spinLoader,
 .spinLoader:before,
 .spinLoader:after {
-    background: #06c5a6 !important;
+    background: #063a7e !important;
     -webkit-animation: spinLoaderChat 1s infinite ease-in-out;
     animation: spinLoaderChat 1s infinite ease-in-out;
     width: 1em;
     height: 4em;
 }
 .spinLoader {
-    color: #06c5a6 !important;
+    color: #063a7e !important;
     text-indent: -9999em;
     margin: 50% auto;
     position: relative;
