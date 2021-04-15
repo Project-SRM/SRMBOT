@@ -143,7 +143,7 @@
 					setTimeout(ready, Math.random()*500+100);
 		        }
 
-				else if(convState.current.answer.value==='medical') {
+				else if(convState.current.answer.value==='medical'|| convState.current.answer.value==='management'|| convState.current.answer.value==='law'||convState.current.answer.value==='SandH'||convState.current.answer.value==='HandCM'||convState.current.answer.value==='international'||convState.current.answer.value==='otherSector') {
 		            convState.current.next = convState.newState({
 						type: 'select',
 						//noAnswer: true,
@@ -160,103 +160,7 @@
 					setTimeout(ready, Math.random()*500+100);
 		        }
 
-				else if(convState.current.answer.value==='management') {
-		            convState.current.next = convState.newState({
-						type: 'select',
-						//noAnswer: true,
-						name: 'dynamic-question-'+count,
-						questions: ['For More Information:'],
-						answers: [
-							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'website'},
-							{text: 'Apply Now', value: 'apply'},
-							{text: 'END', value: 'end'}
-						]
-					});
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
-
-				else if(convState.current.answer.value==='law') {
-		            convState.current.next = convState.newState({
-						type: 'select',
-						//noAnswer: true,
-						name: 'dynamic-question-'+count,
-						questions: ['For More Information:'],
-						answers: [
-							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'website'},
-							{text: 'Apply Now', value: 'apply'},
-							{text: 'END', value: 'end'}
-						]
-					});
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
-				else if(convState.current.answer.value==='SandH') {
-		            convState.current.next = convState.newState({
-						type: 'select',
-						//noAnswer: true,
-						name: 'dynamic-question-'+count,
-						questions: ['For More Information:'],
-						answers: [
-							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'website'},
-							{text: 'Apply Now', value: 'apply'},
-							{text: 'END', value: 'end'}
-						]
-					});
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
-				else if(convState.current.answer.value==='HandCM') {
-		            convState.current.next = convState.newState({
-						type: 'select',
-						//noAnswer: true,
-						name: 'dynamic-question-'+count,
-						questions: ['For More Information:'],
-						answers: [
-							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'website'},
-							{text: 'Apply Now', value: 'apply'},
-							{text: 'END', value: 'end'}
-						]
-					});
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
-				else if(convState.current.answer.value==='international') {
-		            convState.current.next = convState.newState({
-						type: 'select',
-						//noAnswer: true,
-						name: 'dynamic-question-'+count,
-						questions: ['For More Information:'],
-						answers: [
-							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'website'},
-							{text: 'Apply Now', value: 'apply'},
-							{text: 'END', value: 'end'}
-						]
-					});
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
-				else if(convState.current.answer.value==='otherSector') {
-		            convState.current.next = convState.newState({
-						type: 'select',
-						//noAnswer: true,
-						name: 'dynamic-question-'+count,
-						questions: ['For More Information:'],
-						answers: [
-							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'website'},
-							{text: 'Apply Now', value: 'apply'},
-							{text: 'END', value: 'end'}
-						]
-					});
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
+				
 				else if(convState.current.answer.value==='fees') {
 		            convState.current.next = convState.newState({
 						type: 'select',
