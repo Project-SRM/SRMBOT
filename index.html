@@ -110,8 +110,8 @@
 							{text: 'Academics', value: 'academics'},
 							{text: 'Campus Life', value: 'campus-life'},
 							{text: 'Research', value: 'research'},
-							{text: 'About', value: 'about'},
-							{text: 'END', value: 'end'}
+							{text: 'About', value: 'about'}
+							//{text: 'END', value: 'end'}
 						]
 					});
 					//emulating random response time (100-600ms)
@@ -131,8 +131,8 @@
 							{text: 'Science And Humanities', value: 'SandH'},
 							{text: 'Hotel and Catering Management', value: 'HandCM'},
 							{text: 'International Admissions', value: 'international'},
-							{text: 'Others', value: 'otherSector'},
-							{text: 'END', value: 'end'}
+							{text: 'Others', value: 'otherSector'}
+							//{text: 'END', value: 'end'}
 						]
 					});
 					//emulating random response time (100-600ms)
@@ -150,9 +150,9 @@
 							{text: 'Admission Procedure', value: 'admissionProcedure'},
 							{text: 'Apply Now', value: 'apply'},
 							{text: 'Financial and Fees', value: 'fees'},
-							{text: 'Others', value: 'othersEng'},
-							{text: 'Know More', value: 'knowmore'},
-							{text: 'END', value: 'end'}
+							//{text: 'Others', value: 'othersEng'},
+							{text: 'Know More', value: 'knowmore'}
+							//{text: 'END', value: 'end'}
 						]
 					});
 					//emulating random response time (100-600ms)
@@ -165,9 +165,9 @@
 						name: 'dynamic-question-'+count,
 						questions: ['For More Information:'],
 						answers: [
-							{text: 'Contact Us', value: 'contact'},
-							{text: 'Visit Website', value: 'websiteEng'},
-							{text: 'END', value: 'end'}
+						    {text: 'Visit Website', value: 'websiteEng'},
+							{text: 'Contact Us', value: 'contact'}							
+							//{text: 'END', value: 'end'}
 						]
 					});
 					
@@ -184,10 +184,12 @@
 						name: 'dynamic-question-'+count,
 						questions: ['For More Information:'],
 						answers: [
-							{text: 'Contact Us', value: 'contact'},
+						    {text: 'Apply Now', value: 'apply'},
 							{text: 'Visit Website', value: 'website'},
-							{text: 'Apply Now', value: 'apply'},
-							{text: 'END', value: 'end'}
+							{text: 'Contact Us', value: 'contact'}
+							
+							
+							//{text: 'END', value: 'end'}
 						]
 					});
 					//emulating random response time (100-600ms)
@@ -207,8 +209,8 @@
 							{text: 'Transport Fees', value: 'transport'},
 							{text: 'Scholarships', value: 'scholarship'},
 							{text: 'Refund related issues', value: 'refund'},
-							{text: 'Loans', value: 'loans'},
-							{text: 'END', value: 'end'}
+							{text: 'Loans', value: 'loans'}
+							//{text: 'END', value: 'end'}
 						]
 					});
 					//emulating random response time (100-600ms)
@@ -272,7 +274,7 @@
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
 		        }
-				else if(convState.current.answer.value==='websiteEng'|convState.current.answer.value==='othersEng') {
+				else if(convState.current.answer.value==='websiteEng'){//|convState.current.answer.value==='othersEng') {
 					convState.current.next = convState.newState({
 						type: 'select'
 					});
@@ -340,18 +342,11 @@
 					convState.current.next = convState.newState({
 						type: 'select'
 					});
-		            window.location.href = "https://www.srmist.edu.in/academics/engineering";
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
-				else if(convState.current.answer.value==='scholarship') {
-					convState.current.next = convState.newState({
-						type: 'select'
-					});
 		            window.location.href = "https://www.srmist.edu.in/admission-india/engineering/fees/loans";
 					//emulating random response time (100-600ms)
 					setTimeout(ready, Math.random()*500+100);
 		        }
+				
 				
 
 
@@ -382,8 +377,8 @@
 						questions: ['Hy {name}! How can I help you?'],
 						answers: [
 							{text: 'Tell about SRM', value: 'srm'},
-							{text: 'Admission', value: 'admission'},
-							{text: 'END', value: 'end'}
+							{text: 'Admission', value: 'admission'}
+							//{text: 'END', value: 'end'}
 						]
 					});
 					// convState.current.next.next = convState.newState({
